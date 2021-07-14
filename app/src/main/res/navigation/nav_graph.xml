@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.navigationviewexample.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentA"
+            app:destination="@id/fragmentA"/>
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentB"
+            app:destination="@id/fragmentB" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentA"
+        android:name="com.example.navigationviewexample.FragmentA"
+        android:label="fragmentA"
+        tools:layout="@layout/fragment_a" >
+        <action
+            android:id="@+id/action_fragmentA_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+        <argument
+            android:name="valueFromHome"
+            app:argType="string"
+            android:defaultValue="No data send" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentB"
+        android:name="com.example.navigationviewexample.FragmentB"
+        android:label="fragmentB"
+        tools:layout="@layout/fragment_b" >
+        <action
+            android:id="@+id/action_fragmentB_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+        <action
+            android:id="@+id/action_fragmentB_to_fragmentC"
+            app:destination="@id/fragmentC" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentC"
+        android:name="com.example.navigationviewexample.FragmentC"
+        android:label="fragmentC"
+        tools:layout="@layout/fragment_c" >
+
+        <action
+            android:id="@+id/action_fragmentC_to_fragmentB"
+            app:destination="@id/fragmentB" />
+        <action
+            android:id="@+id/action_fragmentC_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+    </fragment>
+</navigation>
